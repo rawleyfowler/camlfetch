@@ -6,13 +6,12 @@ type t =
   ; username : string }
 
 let os_not_supported () =
-  failwith {|Your operating system is not supported.
-            You can submit a PR to add it at:
-            https://github.com/rawleyfowler/camlfetch|}
+  failwith "Your operating system is not supported.\nYou can submit a PR to add it at: https://github.com/rawleyfowler/camlfetch"
+;;
 
 let get_sys_version () =
   let raw =
-    Unix.open_process_args_in "uname" [| "-a" |] |> In_channel.input_all
+    Unix.open_process_in "uname -a" |> In_channel.input_all
   in
   let raw_s =
     Str.split_delim (Str.regexp " ") raw
@@ -34,10 +33,15 @@ let get_sys_shell () =
     Unix.getpwuid @@ Unix.getuid ()
   in
   passwd.pw_shell
+  |> Str.split_delim (Str.regexp "/")
+  |> List.rev
+  |> List.hd
 ;;
 
 let get_sys_os () =
-  Unix.open_process_args_in "uname" [||] |> In_channel.input_all
+  Unix.open_process_in "uname"
+  |> In_channel.input_all
+  |> String.trim
 ;;
 
 let get_info () : t =

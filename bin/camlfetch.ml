@@ -2,7 +2,9 @@ let info = Sys_info.get_info ()
 
 let () =
   Printf.printf
-    "%s %s | %s@%s | %s"
+    "\n%s %s
+| %s@%s
+| %s\n"
     info.Sys_info.os
     info.Sys_info.version
     info.Sys_info.username
