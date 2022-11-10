@@ -1,0 +1,5 @@
+(executable
+ (name camlfetch)
+ (public_name camlfetch)
+ (package camlfetch)
+ (libraries unix str))
