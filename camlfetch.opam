@@ -8,6 +8,7 @@ depends: [
   "ocaml"
   "dune" {>= "3.4"}
   "unix"
+  "str"
   "odoc" {with-doc}
 ]
 build: [

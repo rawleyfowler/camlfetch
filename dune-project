@@ -10,7 +10,8 @@
  (depends
    ocaml
    dune
-   unix)
+   unix
+   str)
  (tags
   (topics fetch)))
 
