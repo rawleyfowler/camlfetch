@@ -1,4 +1,8 @@
-let info = Sys_info.get_info ()
+open Camlfetch
+
+let info =
+  Sys_info.get_info ()
+;;
 
 let () =
   Printf.printf
