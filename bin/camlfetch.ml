@@ -13,7 +13,10 @@ let ascii =
   Ascii.find a
 ;;
 
-let pp_with_ascii info ascii =
+let pp info ascii () =
+  let (total_mem, used_mem) =
+    info.Sys_info.memory
+  in    
   let info_t =
     [ Printf.sprintf
         "%s@%s"
@@ -23,6 +26,13 @@ let pp_with_ascii info ascii =
         "OS: %s %s"
         info.Sys_info.os
         info.Sys_info.version
+    ; Printf.sprintf
+        "Pkgs: %d"
+        info.Sys_info.pkg_count
+    ; Printf.sprintf
+        "Mem: %dMb / %dMb"
+        used_mem
+        total_mem
     ; Printf.sprintf
         "Shell: %s"
         info.Sys_info.shell ]
@@ -42,11 +52,11 @@ let pp_with_ascii info ascii =
        print_endline a;
        aux (b, [])
     | ([], []) -> print_newline ()
-    | _ -> failwith "something went wrong!"
+    | _ -> failwith "something went terribly wrong!"
   in
   aux (ascii_t, info_t)
 ;;
 
 let () =
-  pp_with_ascii info ascii
+  pp info ascii ()
 ;;

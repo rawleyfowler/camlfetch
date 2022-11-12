@@ -5,7 +5,7 @@ tags: ["topics" "fetch"]
 homepage: "https://github.com/rawleyfowler/camlfetch"
 bug-reports: "https://github.com/rawleyfowler/camlfetch/issues"
 depends: [
-  "ocaml"
+  "ocaml" {>= "4.14"}
   "dune" {>= "3.4"}
   "unix"
   "str"
