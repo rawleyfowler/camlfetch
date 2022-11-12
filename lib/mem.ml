@@ -60,7 +60,7 @@ let netbsd () =
   in
   let rem_mem =
     try
-      Util.captire_process "cat /proc/meminfo"
+      Util.capture_process "cat /proc/meminfo" ()
       |> String.trim
       |> Str.split_delim (Str.regexp "\n")
       |> List.filter (String.starts_with ~prefix:"MemFree:")
@@ -74,7 +74,7 @@ let netbsd () =
       |> List.hd (* "MEMORY_FREE" *)
       |> int_of_string
       |> ( - ) total_mem
-    with _ -> failed_to_get_mem "netbsd"
+    with _ -> failed_to_get_mem "netbsd" ()
   in
   (total_mem, rem_mem)
 ;;
