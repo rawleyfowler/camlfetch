@@ -5,9 +5,9 @@ true camel langauge.
           ,,_   rf@doom
           (=-'      OS: FreeBSD 13.1-RELEASE-p3
     /\/\  ))      Pkgs: 436
- ~\/    \/ |       Mem: 6882Mb / 16256Mb
-  | )___(  |     Shell: bash
-  |/     \||      
+ ~\/    \/ |       Cpu: AMD Ryzen 7 3700X 8-Core Processor
+  | )___(  |       Mem: 9698Mb / 16256Mb
+  |/     \||     Shell: bash
   |'      |'       
 ```
 
