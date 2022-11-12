@@ -2,7 +2,7 @@ let failed_to_get_mem os () =
   failwith @@ Printf.sprintf "Failed to read memory for OS: %s" os
 ;;
 
-let get_sys_mem_freebsd () =
+let freebsd () =
   let total_mem =
     (Util.capture_process "sysctl -n hw.physmem" ()
      |> String.trim
@@ -24,7 +24,11 @@ let get_sys_mem_freebsd () =
   (total_mem, rem_mem)
 ;;
 
-let get_sys_mem_openbsd () =
+let dragonflybsd =
+  freebsd
+;;
+
+let openbsd () =
   let total_mem =
     (Util.capture_process "sysctl -n hw.physmem" ()
      |> String.trim
@@ -47,3 +51,32 @@ let get_sys_mem_openbsd () =
   in
   (total_mem, rem_mem)
 ;;
+
+let netbsd () =
+  let total_mem =
+    (Util.capture_process "sysctl -n hw.physmem64" ()
+     |> String.trim
+     |> int_of_string) / 1024 / 1024
+  in
+  let rem_mem =
+    try
+      Util.captire_process "cat /proc/meminfo"
+      |> String.trim
+      |> Str.split_delim (Str.regexp "\n")
+      |> List.filter (String.starts_with ~prefix:"MemFree:")
+      |> List.hd (* "MemFree: MEMORY_FREE kB\n" *)
+      |> String.trim
+      |> Str.split_delim (Str.regexp ":")
+      |> List.tl
+      |> List.hd (* " MEMORY_FREE kB"  *)
+      |> String.trim
+      |> Str.split_delim (Str.regexp " ")
+      |> List.hd (* "MEMORY_FREE" *)
+      |> int_of_string
+      |> ( - ) total_mem
+    with _ -> failed_to_get_mem "netbsd"
+  in
+  (total_mem, rem_mem)
+;;
+  
+  

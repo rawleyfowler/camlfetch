@@ -19,6 +19,7 @@ let get_sys_pkg_count os () =
   | "freebsd" -> freebsd ()
   | "dragonfly" | "dragonflybsd" -> dragonflybsd ()
   | "openbsd" -> openbsd ()
+  | "netbsd" -> netbsd ()
   | _ -> 0
 ;;
 
@@ -64,8 +65,10 @@ let get_sys_os () =
 let get_sys_cpu os () =
   let open Cpu in
   match os with
-  | "freebsd" | "dragonflybsd" | "dragonfly" -> get_sys_cpu_freebsd ()
-  | "openbsd" -> get_sys_cpu_openbsd ()
+  | "freebsd" -> freebsd ()
+  | "dragonflybsd" | "dragonfly" -> dragonflybsd ()
+  | "openbsd" -> openbsd ()
+  | "netbsd" -> netbsd ()
   | _ -> os_not_supported ()
 ;;
 
@@ -73,8 +76,10 @@ let get_sys_cpu os () =
 let get_sys_mem os () =
   let open Mem in
   match os with
-  | "freebsd" | "dragonfly" | "dragonflybsd" -> get_sys_mem_freebsd ()
-  | "openbsd" -> get_sys_mem_openbsd ()
+  | "freebsd" -> freebsd ()
+  | "dragonfly" | "dragonflybsd" -> dragonflybsd ()
+  | "openbsd" -> openbsd ()
+  | "netbsd" -> netbsd ()
   | _ -> os_not_supported ()
 ;;
 

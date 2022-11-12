@@ -1,5 +1,5 @@
 # camlfetch
-A simple camel based system fetching tool for Unix systems, written in the only
+A simple camel based system fetching tool for BSD systems, written in the only
 true camel language, OCaml.
 ```
           ,,_   rf@doom
@@ -25,10 +25,10 @@ camlfetch
 - [FreeBSD](https://www.freebsd.org/)
 - [DragonflyBSD](https://www.dragonflybsd.org/)
 - [OpenBSD](https://www.openbsd.org/)
+- [NetBSD](http://www.netbsd.org/)
 
 ## Planned OS support
-- NetBSD
-- GNU/Linux
+- SerenityOS?
 
 ## Contributing
 Camlfetch is open to any and all contributions! I'm hoping that we can build a

@@ -14,4 +14,7 @@ let openbsd () =
   Util.capture_process "printf '%s\n' /var/db/pkg/*/" () |> count_lines
 ;;
 
+let netbsd () =
+  Util.capture_process "pkg_info" () |> count_lines
+;;
 
