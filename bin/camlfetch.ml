@@ -30,6 +30,9 @@ let pp info ascii () =
         "Pkgs: %d"
         info.Sys_info.pkg_count
     ; Printf.sprintf
+        "Cpu: %s"
+        info.Sys_info.cpu
+    ; Printf.sprintf
         "Mem: %dMb / %dMb"
         used_mem
         total_mem
