@@ -1,6 +1,6 @@
 # camlfetch
 A simple camel based system fetching tool for Unix systems, written in the only
-true camel langauge.
+true camel language, OCaml.
 ```
           ,,_   rf@doom
           (=-'      OS: FreeBSD 13.1-RELEASE-p3
