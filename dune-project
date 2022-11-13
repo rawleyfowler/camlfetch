@@ -1,6 +1,7 @@
 (lang dune 3.4)
 
 (name camlfetch)
+(version bf9efe7)
 (generate_opam_files true)
 
 (package

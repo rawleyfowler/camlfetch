@@ -1,7 +1,7 @@
 open Camlfetch
 
 let info =
-  Sys_info.get_info ()
+  Sys_info.get_sys_info ()
 ;;
 
 let ascii =

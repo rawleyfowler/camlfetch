@@ -8,8 +8,7 @@ type t =
   ; version : string
   ; username : string }
 
-let os_not_supported () =
-  failwith "Your operating system is not supported.\nYou can submit a PR to add it at: https://github.com/rawleyfowler/camlfetch"
+let os_not_supported () = "OS NOT SUPPORTED"
 ;;
 
 (** Takes a string [os] and counts the packages installed on the current system depending on the OS *)
@@ -80,7 +79,7 @@ let get_sys_mem os () =
   | "dragonfly" | "dragonflybsd" -> dragonflybsd ()
   | "openbsd" -> openbsd ()
   | "netbsd" -> netbsd ()
-  | _ -> os_not_supported ()
+  | _ -> (0, 0)
 ;;
 
 let os =
@@ -91,8 +90,8 @@ let os_lower =
   String.lowercase_ascii os
 ;;
 
-(** Returns an aggregated list of all relevant system info of [Sys_info.t] *)
-let get_info () : t =
+(** Returns a recrod [t] of all relevant system info of [Sys_info.t] *)
+let get_sys_info () : t =
   { os
   ; pkg_count = get_sys_pkg_count os_lower ()
   ; cpu = get_sys_cpu os_lower ()
