@@ -5,6 +5,7 @@
 (generate_opam_files true)
 
 (package
+ (maintainers "Rawley Fowler <rawleyfowler@gmail.com>")
  (name camlfetch)
  (allow_empty)
  (synopsis "A simple system fetching tool")
