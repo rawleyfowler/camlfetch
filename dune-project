@@ -11,9 +11,7 @@
  (synopsis "A simple system fetching tool")
  (depends
    (ocaml (>= 4.14))
-   dune
-   unix
-   str)
+   dune)
  (tags
   (topics fetch)))
 
