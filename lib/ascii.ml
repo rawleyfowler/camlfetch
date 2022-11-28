@@ -8,6 +8,17 @@ let caml =
   |'      |'    |eos}
 ;;
 
+let caml_two =
+{eos|
+        _v   ,,
+       /`|   &&.
+      `-\`-&&&&&.
+         \&&&&&&&\
+          &&#""&& \
+         / |   |\  x
+         \ |  / /```   |eos}
+;;
+
 let ascii_hash : (string, string) Hashtbl.t =
   Hashtbl.create 10
 ;;
